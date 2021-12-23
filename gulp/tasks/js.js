@@ -11,7 +11,7 @@ export const js = () => {
         .pipe(webpack({
             mode:   app.isBuild ? 'production' : 'development',
             output: {
-                filename:   'all.min.js'
+                filename:   'scripts.min.js'
             }
         }))
         .pipe(app.gulp.dest(app.path.build.js))
