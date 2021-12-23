@@ -1,0 +1,25 @@
+// Fonts
+$baseFontFamily: sans-serif;
+$baseFontSize: 16px;
+$baseFontWeight: 400;
+$baseLineHeight: 1.5;
+$textColor: #000;
+$backgroundColor: #fff;
+
+// Breakpoints
+$phone: 319.98px;
+$phone-wide: 479.98px;
+$tablet: 767.98px;
+$tablet-wide: 991.98px;
+$desktop: 1269.98px;
+$desktop-wide: 1439.98px;
+
+// Container
+$containerWidth: 1050;
+$containerPadding: 15;
+
+// Width
+$minWidth: 320;
+$maxWidth: 1600;
+$contentWidth: $containerWidth + ($containerPadding * 2);
+

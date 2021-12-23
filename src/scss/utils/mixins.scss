@@ -1,0 +1,44 @@
+@mixin font($fontName, $fileName, $weight, $style) {
+    @font-face {
+        font-family: $fontName;
+        font-display: swap;
+        src:
+            url('../fonts/#{$fileName}.woff2') format('woff2'),
+            url('../fonts/#{$fileName}.woff') format('woff'),
+            url('../fonts/#{$fileName}.ttf') format('ttf');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+@mixin maxBreakpoint($bp) {
+    @media (max-width: $bp) {
+        @content;
+    }
+}
+
+@mixin minBreakpoint($bp) {
+    @media (min-width: $bp) {
+        @content;
+    }
+}
+
+@mixin adaptiveValue($property, $startSize, $minSize, $type) {
+    $addSize: $startSize - $minSize;
+    @if $type == 1 {
+        //Только если меньше контейнера
+        #{$property}: $startSize + px;
+        @media (max-width: #{$contentWidth + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$contentWidth - $minWidth}));
+        }
+    } @else if $type == 2 {
+        //Только если больше контейнера
+        #{$property}: $startSize + px;
+        @media (min-width: #{$contentWidth + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth}));
+        }
+    } @else {
+        //Всегда
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth}));
+    }
+}

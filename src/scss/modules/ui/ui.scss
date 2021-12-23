@@ -1,0 +1,198 @@
+//==================== Buttons UI ====================//
+.button {
+    display: flex;
+    padding: 0;
+}
+
+//==================== Forms UI ====================//
+.form {
+    position: relative;
+    // .form::after
+    &::after {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     background: rgba(51, 51, 51, .9) url(../img/loading.gif) center / 50px no-repeat;
+    //     opacity: 0;
+    //     visibility: hidden;
+    //     transition: opacity .3s ease 0s;
+    }
+    // .form_sending::after
+    &_sending::after {
+        // opacity: 0.7;
+        // visibility: visible;
+    }
+    // .form *
+    & * {
+        outline: none;
+    }
+    // .form__error-message
+    &__error-message {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        transform: scale(0);
+        transition: all .3s ease 0s;
+        // .form__error-message::before
+        &::before {
+        //     position: absolute;
+        //     bottom: 100%;
+        //     left: 10px;
+        //     content: "";
+        //     display: block;
+        //     width: 0;
+        //     height: 0;
+        //     border-left: 8px solid transparent;
+        //     border-right: 8px solid transparent;
+        //     border-bottom: 8px solid red;
+        }
+    }
+    // .form__item
+    &__item {
+        position: relative;
+        width: 100%;
+        transition: margin-bottom .6s ease 0s;
+        &.form__error {
+            & .form__error-message {
+                transform: scale(1);
+            }
+        }
+    }
+    // .form__input
+    &__input {
+        // .form__input.form__error
+        &.form__error {
+            // border: 2px solid red;
+        }
+    }
+    // .form__button
+    &__button {
+        cursor: pointer;
+    }
+}
+
+.radio {
+    // .radio__label
+    &__label {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        // .radio__label::before
+        &::before {
+            content: "";
+            flex: 0 0 24px;
+            height: 24px;
+            align-self: flex-start;
+            background-color: #fff;
+            border-radius: 50%;
+            margin: 0 10px 0 0;
+        }
+        // .radio__label::after
+        &::after {
+            position: absolute;
+            content: "";
+            top: 4px;
+            left: 4px;
+            width: 16px;
+            height: 16px;
+            background-color: #000;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform .3s ease 0s;
+        }
+    }
+    // .radio__input
+    &__input {
+        display: none;
+        &:checked + .radio__label::after {
+            transform: scale(1);
+        }
+    }
+}
+
+.select {
+    width: 100%;
+}
+
+.file {
+    // .file__item
+    &__item {
+        position: relative;
+    }
+    // .file__input
+    &__input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100%;
+        opacity: 0;
+        font-size: 0;
+        cursor: pointer;
+    }
+    // .file__button
+    &__button {
+    }
+    // .file__preview
+    &__preview {
+        display: inline-block;
+        max-width: 100px;
+        padding: 10px 0 0 0;
+    }
+}
+
+.checkbox {
+    transition: margin-bottom .6s ease 0s;
+    // .checkbox.form__error
+    &.form__error {
+        // .checkbox.form__error .form__error-message
+        & .form__error-message {
+            transform: scale(1);
+        }
+    }
+    // .checkbox.form__error .checkbox__label::before
+    &.form__error .checkbox__label::before {
+        // border: 2px solid red;
+    }
+    // .checkbox__input
+    &__input {
+        display: none;
+        // .checkbox__input:checked + .checkbox__label:after
+        &:checked + .checkbox__label:after {
+            transform: scale(1);
+        }
+    }
+    // .checkbox__label
+    &__label {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        // .checkbox__label::before
+        &::before {
+            content: "";
+            flex: 0 0 24px;
+            align-self: flex-start;
+            height: 24px;
+            background-color: #fff;
+            margin: 0 10px 0 0;
+        }
+        // .checkbox__label::after
+        &::after {
+            position: absolute;
+            content: "";
+            width: 16px;
+            height: 16px;
+            left: 4px;
+            top: 4px;
+            background-color: #000;
+            transform: scale(0);
+            transition: transform .3s ease 0s;
+        }
+    }
+}

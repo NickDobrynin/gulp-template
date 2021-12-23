@@ -1,0 +1,135 @@
+@use 'sass:math';
+@import "utils/libs";
+@import "utils/vars";
+@import "utils/mixins";
+@import "utils/fonts";      // &display=swap&subset=cyrillic-ext
+@import "utils/fonticons";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: $baseFontFamily;
+    font-size: $baseFontSize;
+    color: $textColor;
+    font-weight: $baseFontWeight;
+    background-color: $backgroundColor;
+    scroll-behavior: smooth;
+    line-height: $baseLineHeight;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button {
+    background-color: transparent;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video,
+textarea {
+    vertical-align: middle;
+}
+
+textarea {
+    resize: none;
+}
+
+section {
+    position: relative;
+}
+
+input,
+select,
+button {
+    outline: none;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.embed-img {
+    position: relative;
+    & img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    max-width: $contentWidth + px;
+    width: 100%;
+    padding: 0 $containerPadding + px;
+}
+
+/* Delete animations and transitions */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Import modules */
+@import "modules/modules";
+
+.page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+//==================== Section ====================//
