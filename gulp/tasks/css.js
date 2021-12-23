@@ -16,10 +16,10 @@ export const css = () => {
                 message:    'Error: <%= error.message %>'
             })
         ))
-        .pipe(app.plugins.replace(/@img\//g, '../img/'))
         .pipe(sass({
             outputStyle:    'expanded'
         }))
+        .pipe(app.plugins.replace(/@img\//g, '../img/'))
         .pipe(groupMedia())
         .pipe(webpCss({
             webpClass:      '.webp',
