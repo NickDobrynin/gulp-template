@@ -35,7 +35,7 @@ if (sliders.length > 0) {
 let mainSlider = document.querySelector('.slider');
 
 if (mainSlider) {
-    new Swiper('.slider', {
+    new Swiper(mainSlider, {
         observer:               true,
         observeParents:         true,
         observeSlideChildren:   true,
