@@ -12,6 +12,7 @@
  *     <div class="slider__arrow_prev"></div>
  * </div>
  */
+import Swiper from 'swiper';
 let sliders = document.querySelectorAll('.slider-swiper');
 
 if (sliders.length > 0) {
