@@ -43,6 +43,7 @@ if (mainSlider) {
         watchOverflow:          true,
         parallax:               true,
         loop:                   true,
+	autoHeight:             true,
         loopAdditionalSlides:   5,
         slidesPerView:          1,
         spaceBetween:           32,
