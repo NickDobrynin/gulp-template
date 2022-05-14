@@ -13,7 +13,8 @@ export const otf2ttf = () => {
         .pipe(fonter({
             formats:    ['ttf']
         }))
-        .pipe(app.gulp.dest(`${app.path.srcFolder}/fonts/`));
+        .pipe(app.gulp.dest(`${app.path.srcFolder}/fonts/`))
+        .pipe(app.gulp.dest(app.path.build.fonts));
 }
 
 export const ttf2woff = () => {
@@ -27,6 +28,8 @@ export const ttf2woff = () => {
         .pipe(fonter({
             formats:    ['woff']
         }))
+        .pipe(app.gulp.dest(app.path.build.fonts))
+        .pipe(app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`))
         .pipe(app.gulp.dest(app.path.build.fonts))
         .pipe(app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`))
         .pipe(ttf2woff2())
