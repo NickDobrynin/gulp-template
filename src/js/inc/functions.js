@@ -2,7 +2,7 @@ let ua = window.navigator.userAgent;
 let msie = ua.indexOf("MSIE ");
 
 // Check if user is using mobile
-let isMobile = {
+export let isMobile = {
     Android: function() {
         return navigator.userAgent.match(/Android/i);
     },
