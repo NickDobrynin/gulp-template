@@ -63,7 +63,7 @@ export function removeClasses(containers, className) {
 }
 
 // Slide Toggle
-export let slideUp = (target, duration = 500) => {
+let slideUp = (target, duration = 500) => {
     target.style.transitionProperty = "height, margin, padding";
     target.style.transitionDuration = duration + "ms";
     target.style.height             = target.offsetHeight + "px";
@@ -88,7 +88,7 @@ export let slideUp = (target, duration = 500) => {
     }, duration);
 }
 
-export let slideDown = (target, duration = 500) => {
+let slideDown = (target, duration = 500) => {
     target.style.removeProperty("display");
     let display = window.getComputedStyle(target).display;
     if (display === "none") display = "block";
