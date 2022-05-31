@@ -62,7 +62,7 @@ export function removeClasses(containers, className) {
     }
 }
 
-// Slide Toggle
+// SlideToggle
 let slideUp = (target, duration = 500) => {
     target.style.transitionProperty = "height, margin, padding";
     target.style.transitionDuration = duration + "ms";
