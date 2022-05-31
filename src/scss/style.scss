@@ -115,7 +115,7 @@ button {
 /* Import modules */
 @import "modules/modules";
 
-.page {
+.site {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -123,7 +123,7 @@ button {
     overflow: hidden;
 }
 
-.main {
+.page {
     flex: 1 1 auto;
 }
 
