@@ -1,8 +1,8 @@
 /**
  * Slider js
  * Example:
- * <div class="slider"
- *     <div class="swiper">
+ * <div class="slider-wrapper"
+ *     <div class="slider swiper">
  *         <div>
  *             <div>Slide</div>
  *             <div>Slide</div>
