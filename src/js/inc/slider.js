@@ -1,38 +1,40 @@
 /**
  * Slider js
  * Example:
- * <div class="slider slider-swiper">
- *     <div>
- *         <div>Slide</div>
- *         <div>Slide</div>
- *         <div>Slide</div>
+ * <div class="slider"
+ *     <div class="swiper">
+ *         <div>
+ *             <div>Slide</div>
+ *             <div>Slide</div>
+ *             <div>Slide</div>
+ *         </div>
+ *         <div class="slider__dots"></div>
+ *         <div class="slider__arrow_next"></div>
+ *         <div class="slider__arrow_prev"></div>
  *     </div>
- *     <div class="slider__dots"></div>
- *     <div class="slider__arrow_next"></div>
- *     <div class="slider__arrow_prev"></div>
  * </div>
  */
-import Swiper, { Navigation, Pagination } from 'swiper';
-Swiper.use([Navigation, Pagination]);
-let sliders = document.querySelectorAll('.slider-swiper');
+ import Swiper, { Navigation, Pagination } from 'swiper';
+ Swiper.use([Navigation, Pagination]);
+ let sliders = document.querySelectorAll('.swiper');
 
-if (sliders.length > 0) {
-    for (let index = 0; index < sliders.length; index++) {
-        let slider          = sliders[index],
-            sliderWrapper   = slider.children[0];
+ if (sliders.length > 0) {
+     for (let index = 0; index < sliders.length; index++) {
+         let slider          = sliders[index],
+             sliderWrapper   = slider.children[0];
 
-        if (sliderWrapper) {
-            let sliderItems = sliderWrapper.children;
-            sliderWrapper.classList.add('swiper-wrapper');
-            if (sliderItems) {
-                for (let index = 0; index < sliderItems.length; index++) {
-                    let slide = sliderItems[index];
-                    slide.classList.add('swiper-slide');
-                }
-            }
-        }
-    }
-}
+         if (sliderWrapper) {
+             let sliderItems = sliderWrapper.children;
+             sliderWrapper.classList.add('swiper-wrapper');
+             if (sliderItems) {
+                 for (let index = 0; index < sliderItems.length; index++) {
+                     let slide = sliderItems[index];
+                     slide.classList.add('swiper-slide');
+                 }
+             }
+         }
+     }
+ }
 
 let mainSlider = document.querySelector('.slider');
 
