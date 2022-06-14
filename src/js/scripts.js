@@ -1,7 +1,9 @@
 import * as functions from './inc/functions.js';
 
-// Check for WebP support
-functions.isWebp();
+// LazyLoad
+const lazyLoadInstance = new LazyLoad({
+   elements_selector: ".lazy"
+});
 
 // Click listener
 document.addEventListener('click', documentActions);
@@ -12,3 +14,19 @@ function documentActions(e) {
 
    // Some action code...
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lazyLoadInstance.update();

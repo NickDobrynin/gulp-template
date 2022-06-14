@@ -1,5 +1,4 @@
 let ua = window.navigator.userAgent;
-let msie = ua.indexOf("MSIE ");
 
 // Check if user is using mobile
 export let isMobile = {
@@ -36,22 +35,34 @@ if (isMobile.any()) {
     document.querySelector('html').classList.add('touch');
 }
 
-export function isWebp() {
-    // Test WebP Browser Support
-    function testWebP(callback) {
-        let webP = new Image();
-        webP.onload = webP.onerror = function() {
-            callback(webP.height == 2);
-        };
-        webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-    }
+(function() {
+    let isWebP = function() {
+      const elem = document.createElement('canvas');
 
-    // Check for WebP support
-    testWebP(function (support) {
-        let className = support === true? 'webp' : 'no-webp';
-        document.documentElement.classList.add(className);
-    });
-}
+      if (!!(elem.getContext && elem.getContext('2d'))) {
+          // was able or not to get WebP representation
+          return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+      }
+
+      // very old browser like IE 8, canvas not supported
+      return false;
+    };
+
+    const webpSupported = isWebP();
+
+    if (webpSupported === false) {
+        const lazyItems = document.querySelectorAll('[data-src-replace-webp]');
+
+        for (let i = 0; i < lazyItems.length; i++) {
+            let item = lazyItems[i],
+                dataSrcReplaceWebp = item.getAttribute('data-src-replace-webp');
+
+            if (dataSrcReplaceWebp !== null) {
+                item.setAttribute('data-src', dataSrcReplaceWebp);
+            }
+        }
+    }
+})();
 
 // Remove classes function
 export function removeClasses(containers, className) {
