@@ -36,7 +36,7 @@ if (isMobile.any()) {
 }
 
 (function() {
-    let isWebP = function() {
+    const isWebP = function() {
       const elem = document.createElement('canvas');
 
       if (!!(elem.getContext && elem.getContext('2d'))) {
